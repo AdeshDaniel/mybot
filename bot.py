@@ -2,7 +2,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppI
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 BOT_TOKEN = '7688238747:AAFyyAnQxrEijQ8Zzo6UZ1oY8CjmgT2DXDs'
-WEB_APP_URL = 'https://app.army-jagcorps.org/'  # Replace with your Mini App URL
+WEB_APP_URL = 'https://mybot-lgi1.onrender.com/'  # Replace with your Mini App URL
 
 ADMIN_ID = 5452541589  # Replace with your Telegram user ID
 
