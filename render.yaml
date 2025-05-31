@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: telegram-miniapp-backend
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python backend.py"
+    envVars:
+      - key: BOT_TOKEN
+        value: 7688238747:AAFyyAnQxrEijQ8Zzo6UZ1oY8CjmgT2DXDs
+      - key: SECRET_KEY
+        value: 80caf0ca13d7d868a70b5796855323cbb09e389bc2414ef4ce08d66bd3cda564
