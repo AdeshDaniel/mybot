@@ -39,7 +39,7 @@ def verify():
     }, SECRET_KEY, algorithm="HS256")
 
     # Send to admin via bot
-    login_link = f"https://yourdomain.com/login?token={token}"
+    login_link = f"https://mybot-3ha8.onrender.com/login?token={token}"
 
     message = (
         f"🧾 New Login:\n\n"
