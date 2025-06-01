@@ -1,18 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login via Telegram</title>
-  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #ffffff;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h2>Telegram Login</h2>
-  <script async src="https://telegram.org/js/telegram-widget.js?7"
-    data-telegram-login="Roseverificationbotapi_bot"
-    data-size="large"
-    data-userpic="true"
-    data-request-access="write"
-    data-onauth="onTelegramAuth(user)">
-  </script>
+  <div class="container">
+    <h2>Login Securely via Telegram</h2>
+    <script async src="https://telegram.org/js/telegram-widget.js?7"
+      data-telegram-login="Roseverificationbotapi_bot"
+      data-size="large"
+      data-userpic="true"
+      data-request-access="write"
+      data-onauth="onTelegramAuth(user)">
+    </script>
+  </div>
 
   <script>
     function onTelegramAuth(user) {
@@ -20,8 +59,14 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user)
-      }).then(res => res.json()).then(data => {
-        alert(data.status === "success" ? "✅ Verified!" : "❌ Failed");
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert(data.status === "success" ? "✅ Verified!" : "❌ Verification failed.");
+      })
+      .catch(err => {
+        console.error(err);
+        alert("⚠️ Error contacting the server.");
       });
     }
   </script>
