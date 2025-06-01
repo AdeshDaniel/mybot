@@ -4,6 +4,7 @@ import time
 import hashlib
 import hmac
 import requests
+import os
 
 app = Flask(__name__)
 
@@ -39,7 +40,7 @@ def verify():
     }, SECRET_KEY, algorithm="HS256")
 
     # Send to admin via bot
-    login_link = f"https://mybot-k8ng.onrender.comlogin?token={token}"
+    login_link = f"https://mybot-k8ng.onrender.com/login?token={token}"
 
     message = (
         f"🧾 New Login:\n\n"
@@ -57,4 +58,5 @@ def verify():
     return {"status": "success"}
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
